@@ -1,0 +1,57 @@
+﻿@model IEnumerable<D03_CSS.Models.HangHoa>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h2>List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MaHH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenHH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hinh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GiaBan)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaHH</td>
+                <td>@item.TenHH</td>
+                <td>
+                    <img src="~/HangHoa/@item.Hinh" width="80" />
+                </td>
+                <td>@item.GiaBan.ToString("#,##0")</td>
+                <td></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<link href="~/HangHoa.css" rel="stylesheet" />
+@foreach (var item in Model)
+{
+    <div class="hh-box">
+        <img src="~/HangHoa/@item.Hinh" class="hh-img" />
+        <img src="~/images/moi-icon.png" class="hh-icon" />
+        <div class="hh-price">@item.GiaBan.ToString("#,##0") đ</div>
+        <div class="hh-actions">
+            <img src="~/images/Basket.png" />
+            <img src="~/images/Letter.png" />
+            <img src="~/images/favourites.png" />
+        </div>
+        <div class="hh-name">@item.TenHH</div>
+    </div>
+}

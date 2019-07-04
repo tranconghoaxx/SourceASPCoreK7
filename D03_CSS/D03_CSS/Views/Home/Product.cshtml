@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Product";
+}
+
+<h2>Product</h2>
+
+@{
+    Random rd = new Random();
+    //Khai báo soSP ngẫu nhiên, tối đa 14
+    int soSP = rd.Next(15);
+}
+<link href="~/HangHoa.css" rel="stylesheet" />
+<!--Hiện danh sách-->
+@for (int i = 0; i < soSP; i++)
+{
+    <div class="hh-box">
+        <img src="~/HangHoa/iphone-x-256gb-gray.jpg" class="hh-img" />
+        <img src="~/images/moi-icon.png" class="hh-icon" />
+        <div class="hh-price">@rd.Next(1000, 100000).ToString("#,##0") đ</div>
+        <div class="hh-actions">
+            <img src="~/images/Basket.png" />
+            <img src="~/images/Letter.png" />
+            <img src="~/images/favourites.png" />
+        </div>
+        <div class="hh-name">IPhone @rd.Next(9, 20)</div>
+    </div>
+}
+
