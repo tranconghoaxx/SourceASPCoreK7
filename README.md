@@ -1,4 +1,4 @@
-# SourceASPCoreK7
+﻿# SourceASPCoreK7
 Source code ASP.NET Core 2.2 khóa ngày 27/06/2019
 
 ## Buổi 1 (27/6/2019): Giới thiệu
@@ -14,3 +14,5 @@ Source code ASP.NET Core 2.2 khóa ngày 27/06/2019
 * Lab CSS: Sử dụng box-model, position,.. --> áp dụng đưa vào View
 
 ## Buổi 4 (06/07/2019): jQuery
+
+## Buổi 5 (11/07/2019): BootStrap 4
