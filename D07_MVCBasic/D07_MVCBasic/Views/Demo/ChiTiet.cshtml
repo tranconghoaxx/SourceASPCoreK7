@@ -1,0 +1,55 @@
+﻿@model D07_MVCBasic.Models.HangHoa
+
+@{
+    ViewData["Title"] = "ChiTiet";
+}
+
+<h3>@ViewBag.ThongTin</h3>
+<div class="card">
+    @ViewBag.HangHoa.TenHh
+    @{ 
+        var hh = ViewBag.HangHoa as HangHoa;
+    }
+    <div class="text-danger font-weight-bolder">@hh.TenHh</div> 
+</div>
+
+<div>
+    <h4>HangHoa</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MaHh)
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.MaHh
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TenHh)
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.TenHh
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Hinh)
+        </dt>
+        <dd class = "col-sm-10">
+            <img src="~/Hinh/@Model.Hinh" />
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DonGia)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DonGia)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
