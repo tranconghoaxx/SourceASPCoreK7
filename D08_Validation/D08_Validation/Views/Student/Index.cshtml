@@ -1,0 +1,62 @@
+﻿@model D08_Validation.Models.StudentInfo
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<h4>StudentInfo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Index">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StudentId" class="control-label"></label>
+                <input asp-for="StudentId" class="form-control" />
+                <span asp-validation-for="StudentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mark" class="control-label"></label>
+                <input asp-for="Mark" class="form-control" />
+                <span asp-validation-for="Mark" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsPass" disabled /> @Html.DisplayNameFor(model => model.IsPass)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rank" class="control-label"></label>
+                <input asp-for="Rank" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save Text file" class="btn btn-primary" name="SaveFile" />
+                <input type="submit" value="Save JSON file" class="btn btn-primary" name="SaveFile" />
+
+                <a asp-action="ReadFile" class="btn btn-success" asp-route-type="text">Read Text File</a>
+                <a asp-action="ReadFile" class="btn btn-success" asp-route-type="json">Read JSON File</a>
+
+                <a asp-action="Index" class="btn btn-danger">Clear</a>
+
+                <button type="button" class="btn btn-danger" id="ClearData">Clear</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(function () {
+            $("#ClearData").click(function () {
+                $("#StudentId, #FullName, #Mark").val("");
+            });
+        });
+    </script>
+}
