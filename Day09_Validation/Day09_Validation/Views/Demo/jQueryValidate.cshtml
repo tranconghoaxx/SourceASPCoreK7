@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "jQueryValidate";
+}
+
+<h1>jQueryValidate</h1>
+
+<form id="frmForm">
+    Name: <input name="FullName" placeholder="Điền tên" /><br />
+    Age: <input name="Age" placeholder="Tuổi" /><br />
+    Mark: <input name="Mark" placeholder="Điểm" /><br />
+    Photo: <input name="MyFile" type="file" />
+    <button class="btn btn-primary">Send</button>
+</form>
+<style>
+    label.error{color:red;}
+</style>
+@section Scripts{ 
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+    <script>
+        $(function () {
+            $("#frmForm").validate({
+                rules: {
+                    MyFile: {extension:"png|jpg|jpeg"},
+                    FullName: { required: true, minlength: 5 },
+                    Age: { digits: true, range: [18, 55] },
+                    Mark: {number:true, range:[0,10]}
+                },
+                messages: {
+                    Mark: { number: "Nhập số thực", range: "Điểm từ 0 --> 10" },
+                    FullName: { required: "*", minlength: "Tối thiểu 5 kí tự" },
+                    Age: {digits:"Nhập số nguyên", range:"Tuổi từ 18 - 55"}
+                }
+            });
+        });
+    </script>
+}
