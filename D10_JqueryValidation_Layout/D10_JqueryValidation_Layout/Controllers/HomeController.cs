@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using D10_JqueryValidation_Layout.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace D10_JqueryValidation_Layout.Controllers
 {
@@ -28,7 +29,21 @@ namespace D10_JqueryValidation_Layout.Controllers
 
         public IActionResult Register()
         {
+            //tạo số ngẫu nhiên
+            Random rd = new Random();
+            string maNgauNhien = rd.Next(1000, 10000).ToString();
+
+            //Lưu lại giá trị trên Server dùng Session
+            HttpContext.Session.SetString("MaBaoMat", maNgauNhien);
+
             return View();
+        }
+
+        public string KiemTraMaBaoMat(string MaBaoMat)
+        {
+            var sessionValue = HttpContext.Session.GetString("MaBaoMat");
+            if (sessionValue == null) return "false";
+            return (sessionValue == MaBaoMat) ? "true" : "false";
         }
     }
 }
