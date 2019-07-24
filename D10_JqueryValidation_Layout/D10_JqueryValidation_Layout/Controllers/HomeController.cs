@@ -39,7 +39,7 @@ namespace D10_JqueryValidation_Layout.Controllers
             return View();
         }
 
-        public string KiemTraMaBaoMat(string MaBaoMat)
+        public string KiemTraMaBaoMat(string MaBaoMat)//thầy ơi sao đoạn này chạy không đúng vậy thầy
         {
             var sessionValue = HttpContext.Session.GetString("MaBaoMat");
             if (sessionValue == null) return "false";
